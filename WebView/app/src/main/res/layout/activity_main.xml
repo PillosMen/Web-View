@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/progressBarLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" >
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:id="@+id/progressStatus"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/white" />
+    </FrameLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/goButton"
+            android:layout_toRightOf="@+id/favicon"
+            android:ems="10"
+            android:inputType="textUri"
+            android:selectAllOnFocus="true"/>
+
+        <Button
+            android:id="@+id/goButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/url"
+            android:layout_alignBottom="@+id/url"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/url"
+            android:onClick="go"
+            android:text="buscar" />
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/url"
+            android:enabled="false"
+            android:onClick="back"
+            android:text="atras" />
+
+        <Button
+            android:id="@+id/forwardButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/url"
+            android:layout_toRightOf="@+id/backButton"
+            android:enabled="false"
+            android:onClick="forward"
+            android:text="sig" />
+
+        <Button
+            android:id="@+id/stopButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/url"
+            android:layout_toRightOf="@+id/forwardButton"
+            android:enabled="false"
+            android:onClick="stop"
+            android:text="@string/stop" />
+
+        <Button
+            android:id="@+id/historyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/goButton"
+            android:onClick="history"
+            android:text="hist" />
+
+        <ImageView
+            android:id="@+id/favicon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignBottom="@+id/url"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/goButton"
+            android:src="@drawable/favicon_default"
+            android:contentDescription="@string/favicon"/>
+
+    </RelativeLayout>
+
+    <WebView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/webkit"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@android:color/white"/>
+
+</LinearLayout>
